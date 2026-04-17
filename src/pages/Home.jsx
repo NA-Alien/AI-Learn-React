@@ -5,57 +5,59 @@ export default function Home() {
   const sections = [
     { 
       path: '/elementary', 
-      title: 'Digital Detectives', 
+      title: 'Digital Citizens', 
       icon: <HiShieldCheck />, 
-      accent: 'text-emerald-500', 
-      desc: 'Grades 1-5: Learn password secrets and how to stay safe from "Online Strangers."' 
+      accent: 'bg-emerald-500', 
+      textColor: 'text-emerald-600',
+      desc: 'Grades 1-5: The foundations of online respect, privacy, and safety.' 
     },
     { 
       path: '/middle', 
       title: 'Cyber Guardians', 
       icon: <HiFingerPrint />, 
-      accent: 'text-blue-600', 
-      desc: 'Grades 6-8: Defend your identity, spot phishing, and manage your digital footprint.' 
+      accent: 'bg-blue-600', 
+      textColor: 'text-blue-600',
+      desc: 'Grades 6-8: Protecting community identity and spotting social engineering.' 
     },
     { 
       path: '/high', 
       title: 'Security Architects', 
       icon: <HiLockClosed />, 
-      accent: 'text-indigo-700', 
-      desc: 'Grades 9-12: Master encryption, network safety, and professional defense tools.' 
+      accent: 'bg-indigo-600', 
+      textColor: 'text-indigo-600',
+      desc: 'Grades 9-12: Advanced ethics, encryption, and civic digital defense.' 
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center p-6">
-      <div className="w-full max-w-6xl">
-        <header className="py-24 px-4 text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-slate-200 rounded-full text-slate-500 text-[10px] font-black uppercase tracking-widest mb-8">
-            <span className="h-2 w-2 rounded-full bg-indigo-600 animate-pulse"></span>
-            2026 Cyber-Safety Initiative
+    <div className="min-h-screen bg-white">
+      <div className="max-w-6xl mx-auto px-6 py-24">
+        <header className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border border-slate-200 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
+            Civic Engagement Initiative // 2026
           </div>
-          <h1 className="text-8xl font-black tracking-tighter text-slate-900 mb-6 uppercase">
-            CYBER <span className="text-indigo-600">LEARN</span>
+          <h1 className="text-8xl font-black tracking-tighter text-slate-900 uppercase leading-none mb-6">
+            Cyber <span className="text-indigo-600 font-outline-2">Learn</span>
           </h1>
           <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
-            AI-powered cybersecurity training for students. Secure your future, one lesson at a time.
+            Empowering students with the digital literacy needed for modern civic participation and community safety.
           </p>
         </header>
 
-        <main className="px-4 pb-24">
-          <div className="grid md:grid-cols-3 gap-8">
-            {sections.map((section) => (
-              <Link key={section.path} to={section.path} className="group p-8 rounded-[32px] bg-white border-2 border-slate-50 hover:border-indigo-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-6 bg-slate-50 ${section.accent} group-hover:bg-slate-900 group-hover:text-white transition-all duration-300`}>
-                  {section.icon}
-                </div>
-                <h2 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">{section.title}</h2>
-                <p className="text-slate-500 leading-relaxed font-medium mb-8">{section.desc}</p>
-                <div className={`text-[10px] font-black uppercase tracking-[0.2em] ${section.accent} flex items-center gap-2`}>Begin Training <span>→</span></div>
-              </Link>
-            ))}
-          </div>
-        </main>
+        <div className="grid md:grid-cols-3 gap-8">
+          {sections.map((s) => (
+            <Link key={s.path} to={s.path} className="group p-10 rounded-[40px] bg-slate-50 border-2 border-transparent hover:border-indigo-100 hover:bg-white hover:shadow-2xl hover:shadow-indigo-100 transition-all duration-500">
+              <div className={`w-16 h-16 ${s.accent} rounded-2xl flex items-center justify-center text-3xl text-white mb-8 group-hover:rotate-12 transition-transform shadow-lg`}>
+                {s.icon}
+              </div>
+              <h2 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">{s.title}</h2>
+              <p className="text-slate-500 font-medium leading-relaxed mb-10">{s.desc}</p>
+              <div className={`text-xs font-black uppercase tracking-widest ${s.textColor} flex items-center gap-2`}>
+                Enter Module <span className="group-hover:translate-x-2 transition-transform">→</span>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
